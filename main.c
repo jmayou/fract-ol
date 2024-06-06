@@ -6,61 +6,47 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 15:28:13 by jmayou            #+#    #+#             */
-/*   Updated: 2024/05/30 13:58:22 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/06 18:19:19 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
 #include "fract-ol.h"
 
-void  ft_copmlexe(t_complexe *z,t_complexe c)
+int main (int ac, char **av)
 {
-    double tmp;
+    t_data  data;
     
-    tmp = (z->re * z->re) - (z->im * z->im) + c.re;
-    z->im = (2 * z->re * z->im) + c.im;
-    z->re = tmp;
-}
-
-int main ()
-{
-    void *ptr;
-    int i ;
-    int j ;
-    t_complexe c;
-    t_complexe z;
-    void *wind;
-    int fin;
-    int color;
-    double zoom;
-
-    zoom = 400.0;
-    ptr = mlx_init();
-    wind = mlx_new_window(ptr , WIDTH, HEIGHT, "jailla");
-    i = - WIDTH / 2;
-    while (i <= WIDTH / 2)
+    if(ac == 2 && ft_strcmp(av[1],"Mandelbrot") == 0)
+        data.set = 1;
+    else if(ac == 4 && ft_strcmp(av[1],"Julia") == 0,)
+    data.zoom = 400.0;
+    data.mlx.ptr = mlx_init();
+    data.mlx.wind = mlx_new_window(data.mlx.ptr, WIDTH, HEIGHT, "jailla");
+    data.i = - WIDTH / 2;
+    while (data.i <= WIDTH / 2)
     {
-        j = - HEIGHT / 2;
-        while (j <= HEIGHT / 2)
+        data.j = - HEIGHT / 2;
+        while (data.j <= HEIGHT / 2)
         {
-            z.re = 0;
-            z.im = 0; 
-            c.re = (2 * i) / zoom;
-            c.im = (2 * j) / zoom;  
-            fin = 0;
-            while((z.re * z.re) + (z.im * z.im) <= 4 && fin <= MAX_FIN)
-            {
-                ft_copmlexe(&z,c);
-                fin++;
-            }
-            if(fin == MAX_FIN)
-                color = 0;
-            else
-                color = fin * 0Xffffff;
-            mlx_pixel_put(ptr, wind, (WIDTH / 2) + i, (HEIGHT / 2) - j, color);
-            j++;
+            mandelbrot(&data);
+            // data.z.re = 0;
+            // data.z.im = 0; 
+            // data.c.re = (2 * data.i) / data.zoom;
+            // data.c.im = (2 * data.j) / data.zoom;  
+            // data.fin = 0;
+            // while((data.z.re * data.z.re) + (data.z.im * data.z.im) <= 4 && data.fin <= MAX_FIN)
+            // {
+            //     ft_complexe(&data.z,data.c);
+            //     data.fin++;
+            // }
+            // if(data.fin == MAX_FIN)
+            //     data.color = 0;
+            // else
+            //     data.color = data.fin * 0Xffffff;
+            mlx_pixel_put(data.mlx.ptr, data.mlx.wind, (WIDTH / 2) + data.i, (HEIGHT / 2) - data.j, data.color);
+            data.j++;
         }
-        i++;        
+        data.i++;        
     }
-    mlx_loop(ptr);
+    mlx_loop(data.mlx.ptr);
 }
