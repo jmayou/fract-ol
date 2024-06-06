@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 15:28:13 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/06 18:19:19 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/06 21:06:55 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main (int ac, char **av)
     
     if(ac == 2 && ft_strcmp(av[1],"Mandelbrot") == 0)
         data.set = 1;
-    else if(ac == 4 && ft_strcmp(av[1],"Julia") == 0,)
+    else if(ac == 4 && ft_strcmp(av[1],"Julia") == 0)
     data.zoom = 400.0;
     data.mlx.ptr = mlx_init();
     data.mlx.wind = mlx_new_window(data.mlx.ptr, WIDTH, HEIGHT, "jailla");
