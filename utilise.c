@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:36:56 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/07 14:07:33 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/07 19:16:03 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,11 @@ float   ft_atof(char *str)
     while(--var.k > 0)
       var.n2 = var.n2 / 10;
     return ((var.n1 + var.n2)* var.sing);
+}
+void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = image->addr + (y * image->line_length + x * (image->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
 }

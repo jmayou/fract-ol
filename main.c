@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 15:28:13 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/07 12:31:36 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/07 17:50:19 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int check_error(char *str)
     int i;
     
     i = 0;
+    if(str[i] == '-' || str[i] == '+')
+        i++;
     while(str[i])
     {
         if((str[i] <= '9' && str[i] >= '0') || (str[i] == '.' && ft_kayena(str,'.') == 1))

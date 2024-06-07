@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:26:01 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/07 17:03:44 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/07 19:31:37 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ typedef struct s_mlx
     void *wind;
 } t_mlx;
 
+typedef struct s_image
+{
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
+}				t_image;
+
 typedef struct s_data
 {
     int i;
@@ -42,6 +51,7 @@ typedef struct s_data
     t_complexe z;
     t_complexe c;
     t_mlx   mlx;
+    t_image image;
 } t_data;
 
 typedef struct s_atof
@@ -62,4 +72,5 @@ void    error();
 int    check_error(char *str);
 int ft_kayena(char *str,char c);
 float   ft_atof(char *str);
+void	my_mlx_pixel_put(t_image *image, int x, int y, int color);
 #endif

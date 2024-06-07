@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 19:33:19 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/07 17:10:16 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/07 19:32:35 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void    julia(t_data *data)
     if(data->fin == MAX_FIN)
         data->color = 0;
     else
-        data->color = data->fin * 0X0000ff;
+        data->color = data->fin * 0Xf0f0ff;
 }
 
 void    julia_set(t_data *data)
@@ -33,6 +33,8 @@ void    julia_set(t_data *data)
     data->zoom = 200.0;
     data->mlx.ptr = mlx_init();
     data->mlx.wind = mlx_new_window(data->mlx.ptr, WIDTH, HEIGHT, "Julia");
+    data->image.img = mlx_new_image(data->mlx.ptr,1920,1080);
+    data->image.addr = mlx_get_data_addr(data->image.img,&data->image.bits_per_pixel,&data->image.line_length,&data->image.endian);
     data->i = - WIDTH / 2;
     while (data->i <= WIDTH / 2)
     {
@@ -40,10 +42,11 @@ void    julia_set(t_data *data)
         while (data->j <= HEIGHT / 2)
         {
             julia(data);
-            mlx_pixel_put(data->mlx.ptr, data->mlx.wind, (WIDTH / 2) + data->i, (HEIGHT / 2) - data->j, data->color);
+            my_mlx_pixel_put(&data->image, (WIDTH / 2) + data->i, (HEIGHT / 2) - data->j, data->color);
             data->j++;
         }
         data->i++;        
     }
+    mlx_put_image_to_window(data->mlx.ptr,data->mlx.wind,data->image.img,0,0);
     mlx_loop(data->mlx.ptr);
 }
