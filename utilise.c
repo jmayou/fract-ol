@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:36:56 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/06 20:15:51 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/07 14:07:33 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,61 +40,39 @@ int ft_kayena(char *str,char c)
     }
     return(count);
 }
-void    ft_check_error(char **str)
+void    ft_fill(t_atof *var)
 {
-    int i;
-    
-    i = 0;
-    while(str[i])
-    {
-        if((str[i] <= '9' && str[i] >= '0') || (str[i] == '.' && ft_kayena(str,'.') == 1))
-            i++;
-        else
-        {
-            ft_error();
-            exit(1);
-        }
-    }
+    var->i = 0;
+    var->n1 = 0;
+    var->n2 = 0;
+    var->sing = 1;
+    var->k = 1;
 }
-
 float   ft_atof(char *str)
 {
-    int i;
-    int sing;
-    int n1;
-    float n2;
-    int k;
+    t_atof var;
     
-    i = 0;
-    n1 = 0;
-    n2 = 0;
-    sing = 1;
-    k = 0;
-    if (str[i] == '-' || str[i] == '+')
+    ft_fill(&var);
+    if (str[var.i] == '-' || str[var.i] == '+')
     {
-        if(str[i] == '-')
-            sing = -1;
-        i++;
+        if(str[var.i] == '-')
+            var.sing = -1;
+        var.i++;
     }
-    while (str[i] && str[i] >= '0' && str[i] <= '9')
+    while (str[var.i] && str[var.i] >= '0' && str[var.i] <= '9')
     {
-        n1 = (n1 * 10) + (str[i] - '0');
-        i++;
+        var.n1 = (var.n1 * 10) + (str[var.i] - '0');
+        var.i++;
     }
-    if(str[i] == '.')
+    if(str[var.i] == '.')
     {
-        i++;
-        while (str[i] && str[i] >= '0' && str[i] <= '9')
+        while (str[++var.i] && str[var.i] >= '0' && str[var.i] <= '9')
         {
-            n2 = (n2 * 10) + (str[i] - '0');
-            i++;
-            k++;
+            var.n2 = (var.n2 * 10) + (str[var.i] - '0');
+            var.k++;
         }
     }
-    while(k > 0)
-    {
-      n2 = n2 / 10;
-      k--;
-    }
-    return ((n1 + n2)* sing);
+    while(--var.k > 0)
+      var.n2 = var.n2 / 10;
+    return ((var.n1 + var.n2)* var.sing);
 }
