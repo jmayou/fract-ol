@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:26:01 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/07 19:31:37 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/08 19:49:58 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 #define WIDTH 800
 #define HEIGHT 800
 #define MAX_FIN 100
-
+#define MANDLEBROT 0
+#define JULIA 1
 
 typedef struct s_complexe
 {
@@ -48,6 +49,7 @@ typedef struct s_data
     int fin;
     int color;
     double zoom;
+    int set;
     t_complexe z;
     t_complexe c;
     t_mlx   mlx;
@@ -65,12 +67,14 @@ typedef struct s_atof
 
 void  ft_complexe(t_complexe *z,t_complexe c);
 void    mandelbrot(t_data *data);
-void    mandelbrot_set(t_data *data);
 void    julia(t_data *data);
-void    julia_set(t_data *data);
+void    ft_set(t_data *data,char *str);
 void    error();
 int    check_error(char *str);
 int ft_kayena(char *str,char c);
 float   ft_atof(char *str);
 void	my_mlx_pixel_put(t_image *image, int x, int y, int color);
+int	mouse_hook(int keycode, int x, int y, t_data *data);
+int key_hook(int key,t_data *data);
+int cllose();
 #endif
