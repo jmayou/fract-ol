@@ -6,14 +6,22 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:23:02 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/09 15:52:08 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/09 16:08:34 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+void	set_color(t_data *data, int color)
+{
+	data->color = data->fin * color;
+	if (data->fin == MAX_FIN)
+		data->color = 0;
+}
+
 void	mandelbrot(t_data *data)
 {
+	data->i = (-WIDTH / 2) - 1;
 	while (++data->i <= WIDTH / 2)
 	{
 		data->j = (-HEIGHT / 2) - 1;
@@ -30,9 +38,7 @@ void	mandelbrot(t_data *data)
 				ft_complexe(&data->z, data->c);
 				data->fin++;
 			}
-			data->color = data->fin * 0Xfff0f0;
-			if (data->fin == MAX_FIN)
-				data->color = 0;
+			set_color(data, 0Xfff0f0);
 			my_mlx_pixel_put(&data->image, (WIDTH / 2) + data->i, (HEIGHT / 2)
 				- data->j, data->color);
 		}
@@ -43,6 +49,7 @@ void	mandelbrot(t_data *data)
 
 void	julia(t_data *data)
 {
+	data->i = (-WIDTH / 2) - 1;
 	while (data->i <= WIDTH / 2)
 	{
 		data->j = -HEIGHT / 2 - 1;
@@ -57,9 +64,7 @@ void	julia(t_data *data)
 				ft_complexe(&data->z, data->c);
 				data->fin++;
 			}
-			data->color = data->fin * 0Xfff0f0;
-			if (data->fin == MAX_FIN)
-				data->color = 0;
+			set_color(data, 0Xfff0f0);
 			my_mlx_pixel_put(&data->image, (WIDTH / 2) + data->i, (HEIGHT / 2)
 				- data->j, data->color);
 		}
@@ -77,7 +82,6 @@ void	ft_set(t_data *data, char *str)
 	data->image.addr = mlx_get_data_addr(data->image.img,
 			&data->image.bits_per_pixel, &data->image.line_length,
 			&data->image.endian);
-	data->i = (-WIDTH / 2) - 1;
 	if (data->set == MANDLEBROT)
 	{
 		data->zoom = 400.0;
