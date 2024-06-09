@@ -20,7 +20,7 @@ char	*ft_strdup(const char *s1)
 
 	i = 0;
 	len = ft_strlen(s1);
-	dup = ft_calloc(len + 1,sizeof(char));
+	dup = ft_calloc(len + 1, sizeof(char));
 	if (dup == NULL)
 		return (0);
 	while (i < len)
@@ -33,7 +33,7 @@ char	*ft_strdup(const char *s1)
 //#include <string.h>
 //#include <stdio.h>
 //
-//int main() {
+// int main() {
 //    char *original = NULL;
 //    char *duplicate = ft_strdup(original);
 //       printf("**** %s\n", duplicate);

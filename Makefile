@@ -14,7 +14,7 @@ RM = rm -rf
 
 all : $(NAME)
 
-$(NAME) : $(OBJ) fract-ol.h
+$(NAME) : $(OBJ) fractol.h
 	make -C Libft
 	$(CC) $(MLX_FLAGS) $(CFLAGS) $(OBJ) Libft/libft.a -o $(NAME)
 

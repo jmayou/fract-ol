@@ -28,7 +28,7 @@ char	*ft_strrchr(const char *str, int c)
 //#include <stdio.h>
 //#include <string.h>
 //
-//int main() {
+// int main() {
 //	const char *str = "Hello, World!";
 //	char target = 'o';
 //

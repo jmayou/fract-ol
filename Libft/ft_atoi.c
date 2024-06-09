@@ -40,7 +40,7 @@ int	ft_atoi(const char *str)
 }
 //#include <stdio.h>
 //#include <stdlib.h>
-//int main()
+// int main()
 //{
 //	const char *str = "-+123";
 //	int num = atoi(str);

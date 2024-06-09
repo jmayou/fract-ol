@@ -22,7 +22,7 @@ int	ft_isprint(int c)
 
 //#include <stdio.h>
 //
-//int main()
+// int main()
 //{
 //    char ch = '(';
 //    if (ft_isascii(ch)) {
