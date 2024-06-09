@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:37:07 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/08 19:49:13 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/09 15:16:07 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 int	mouse_hook(int keycode, int x, int y, t_data *data)
 {
+    (void)x;
+    (void)y;
+    
 	if(keycode == 4 && data->zoom > 0)
         data->zoom = data->zoom - 10;
     else if(keycode == 5)
@@ -27,6 +30,8 @@ int	mouse_hook(int keycode, int x, int y, t_data *data)
 }
 int key_hook(int key,t_data *data)
 {
+    (void)data;
+    
     if(key == 53)
         exit(0);
     return(0);

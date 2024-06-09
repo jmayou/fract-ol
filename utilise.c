@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:36:56 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/08 18:55:18 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/09 15:17:59 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int ft_kayena(char *str,char c)
     i = 0;
     count = 0;
     len = ft_strlen(str);
-    if(str[0] == '.' || str[len - 1] == '.')
+    if(str[0] == c || str[len - 1] == c)
         return(5);
     while(str[i])
     {
-        if(str[i] == '.')
+        if(str[i] == c)
             count++;
         i++;
     }
