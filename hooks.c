@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:37:07 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/09 16:01:36 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/09 16:26:12 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,18 @@ int	key_hook(int key, t_data *data)
 {
 	(void)data;
 	if (key == 53)
+    {
+        mlx_destroy_image(data->mlx.ptr, data->image.img);
+        mlx_destroy_window(data->mlx.ptr, data->mlx.wind);
 		exit(0);
+    }
 	return (0);
 }
 
-int	cllose(void)
+int	cllose(t_data *data)
 {
+    mlx_destroy_image(data->mlx.ptr, data->image.img);
+    mlx_destroy_window(data->mlx.ptr, data->mlx.wind);
 	exit(0);
 	return (0);
 }

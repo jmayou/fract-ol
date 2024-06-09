@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fract-ol.h                                         :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:26:01 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/09 15:31:00 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/09 16:26:29 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ float			ft_atof(char *str);
 void			my_mlx_pixel_put(t_image *image, int x, int y, int color);
 int				mouse_hook(int keycode, int x, int y, t_data *data);
 int				key_hook(int key, t_data *data);
-int				cllose(void);
+int				cllose(t_data *data);
 
 #endif
