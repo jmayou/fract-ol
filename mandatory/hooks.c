@@ -6,13 +6,12 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:37:07 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/09 16:52:50 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/12 19:40:29 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <stdio.h>
-
 int	mouse_hook(int keycode, int x, int y, t_data *data)
 {
 	(void)x;
@@ -33,6 +32,7 @@ int	key_hook(int key, t_data *data)
 	(void)data;
 	if (key == 53)
 	{
+		
 		mlx_destroy_image(data->mlx.ptr, data->image.img);
 		mlx_destroy_window(data->mlx.ptr, data->mlx.wind);
 		exit(0);

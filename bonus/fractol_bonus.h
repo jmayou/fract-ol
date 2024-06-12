@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:26:01 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/09 16:26:29 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/12 19:49:23 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
-# include "Libft/libft.h"
+# include "../Libft/libft.h"
 # include <mlx.h>
 # include <unistd.h>
 
@@ -50,8 +50,11 @@ typedef struct s_data
 	int			j;
 	int			fin;
 	int			color;
+	int			fix_color;
 	double		zoom;
 	int			set;
+	float			horizontal;
+	float			verticat;
 	t_complexe	z;
 	t_complexe	c;
 	t_mlx		mlx;
