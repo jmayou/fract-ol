@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 15:28:13 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/12 18:28:30 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:45:51 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,15 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
+	data.fix_color = 0Xfff0f0;
 	if (ac == 2 && ft_strcmp(av[1], "Mandelbrot") == 0)
 	{
 		data.set = MANDLEBROT;
+		ft_set(&data, av[1]);
+	}
+	else if (ac == 2 && ft_strcmp(av[1], "Tricorn") == 0)
+	{
+		data.set = TRICORN;
 		ft_set(&data, av[1]);
 	}
 	else if (ac == 4 && ft_strcmp(av[1], "Julia") == 0

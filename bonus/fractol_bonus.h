@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:26:01 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/12 19:49:23 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:49:48 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define MAX_FIN 100
 # define MANDLEBROT 0
 # define JULIA 1
+# define TRICORN 2
 
 typedef struct s_complexe
 {
@@ -70,9 +71,10 @@ typedef struct s_atof
 	int			k;
 }				t_atof;
 
-void			ft_complexe(t_complexe *z, t_complexe c);
+void			ft_complexe(t_complexe *z, t_complexe c,int set);
 void			mandelbrot(t_data *data);
 void			julia(t_data *data);
+void			my_tricorn(t_data *data);
 void			ft_set(t_data *data, char *str);
 void			error(void);
 int				check_error(char *str);

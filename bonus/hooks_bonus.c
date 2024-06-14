@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:37:07 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/12 19:51:37 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:49:10 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	mouse_hook(int keycode, int x, int y, t_data *data)
 		mandelbrot(data);
 	else if (data->set == JULIA)
 		julia(data);
+	else if (data->set == TRICORN)
+		my_tricorn(data);
 	return (0);
 }
 
@@ -50,6 +52,8 @@ int	key_hook(int key, t_data *data)
 		mandelbrot(data);
 	else if (data->set == JULIA)
 		julia(data);
+	else if (data->set == TRICORN)
+		my_tricorn(data);
 	return (0);
 }
 

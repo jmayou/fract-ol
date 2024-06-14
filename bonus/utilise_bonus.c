@@ -6,19 +6,28 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:36:56 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/12 18:28:52 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/14 16:37:22 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-void	ft_complexe(t_complexe *z, t_complexe c)
+void	ft_complexe(t_complexe *z, t_complexe c,int set)
 {
 	double	tmp;
-
-	tmp = (z->re * z->re) - (z->im * z->im) + c.re;
-	z->im = (2 * z->re * z->im) + c.im;
-	z->re = tmp;
+	
+	if(set == TRICORN)
+	{
+		tmp = (z->re * z->re) - (z->im * z->im) + c.re;
+		z->im = (-2 * z->re * z->im) + c.im;
+		z->re = tmp;
+	}
+	else
+	{
+		tmp = (z->re * z->re) - (z->im * z->im) + c.re;
+		z->im = (2 * z->re * z->im) + c.im;
+		z->re = tmp;
+	}
 }
 
 int	ft_kayena(char *str, char c)
