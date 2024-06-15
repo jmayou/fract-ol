@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:36:56 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/09 15:40:33 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/15 14:03:40 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
 
 	dst = image->addr + (y * image->line_length + x * (image->bits_per_pixel
 				/ 8));
-	*(unsigned int *)dst = color;
+	*(int *)dst = color;
 }

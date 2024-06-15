@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:23:02 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/14 16:42:00 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/15 12:38:18 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,16 @@ void	mandelbrot(t_data *data)
 		{
 			data->z.re = 0;
 			data->z.im = 0;
-			data->c.re = data->horizontal + (2 * data->i) / data->zoom;
-			data->c.im = data->verticat + (2 * data->j) / data->zoom;
+			data->c.re = data->horizontal + (data->i) / data->zoom;
+			data->c.im = data->verticat + (data->j) / data->zoom;
 			data->fin = 0;
 			while ((data->z.re * data->z.re) + (data->z.im * data->z.im) <= 4
 				&& data->fin < MAX_FIN)
 			{
-				ft_complexe(&data->z, data->c,data->set);
+				ft_complexe(&data->z, data->c, data->set);
 				data->fin++;
 			}
-			set_color(data,data->fix_color);
+			set_color(data, data->fix_color);
 			my_mlx_pixel_put(&data->image, (WIDTH / 2) + data->i, (HEIGHT / 2)
 				- data->j, data->color);
 		}
@@ -55,16 +55,16 @@ void	julia(t_data *data)
 		data->j = -HEIGHT / 2 - 1;
 		while (++data->j <= HEIGHT / 2)
 		{
-			data->z.re = data->i / data->zoom;
-			data->z.im = data->j / data->zoom;
+			data->z.re = data->horizontal + (data->i / data->zoom);
+			data->z.im = data->verticat + (data->j / data->zoom);
 			data->fin = 1;
 			while ((data->z.re * data->z.re) + (data->z.im * data->z.im) <= 4
 				&& data->fin < MAX_FIN)
 			{
-				ft_complexe(&data->z, data->c,data->set);
+				ft_complexe(&data->z, data->c, data->set);
 				data->fin++;
 			}
-			set_color(data,data->fix_color);
+			set_color(data, data->fix_color);
 			my_mlx_pixel_put(&data->image, (WIDTH / 2) + data->i, (HEIGHT / 2)
 				- data->j, data->color);
 		}
@@ -84,16 +84,16 @@ void	my_tricorn(t_data *data)
 		{
 			data->z.re = 0;
 			data->z.im = 0;
-			data->c.re = data->horizontal + (2 * data->i) / data->zoom;
-			data->c.im = data->verticat + (2 * data->j) / data->zoom;
+			data->c.re = data->horizontal + (data->i) / data->zoom;
+			data->c.im = data->verticat + (data->j) / data->zoom;
 			data->fin = 0;
 			while ((data->z.re * data->z.re) + (data->z.im * data->z.im) <= 4
 				&& data->fin < MAX_FIN)
 			{
-				ft_complexe(&data->z, data->c,data->set);
+				ft_complexe(&data->z, data->c, data->set);
 				data->fin++;
 			}
-			set_color(data,data->fix_color);
+			set_color(data, data->fix_color);
 			my_mlx_pixel_put(&data->image, (WIDTH / 2) + data->i, (HEIGHT / 2)
 				- data->j, data->color);
 		}
@@ -114,15 +114,13 @@ void	ft_set(t_data *data, char *str)
 			&data->image.endian);
 	if (data->set == MANDLEBROT || data->set == TRICORN)
 	{
-		data->zoom = 400.0;
 		if (data->set == MANDLEBROT)
 			mandelbrot(data);
-		else 
+		else
 			my_tricorn(data);
 	}
 	else if (data->set == JULIA)
 	{
-		data->zoom = 200.0;
 		julia(data);
 	}
 	mlx_mouse_hook(data->mlx.wind, mouse_hook, data);

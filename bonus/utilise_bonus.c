@@ -6,17 +6,17 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 17:36:56 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/14 16:37:22 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/15 14:04:08 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol_bonus.h"
 
-void	ft_complexe(t_complexe *z, t_complexe c,int set)
+void	ft_complexe(t_complexe *z, t_complexe c, int set)
 {
 	double	tmp;
-	
-	if(set == TRICORN)
+
+	if (set == TRICORN)
 	{
 		tmp = (z->re * z->re) - (z->im * z->im) + c.re;
 		z->im = (-2 * z->re * z->im) + c.im;
@@ -94,5 +94,5 @@ void	my_mlx_pixel_put(t_image *image, int x, int y, int color)
 
 	dst = image->addr + (y * image->line_length + x * (image->bits_per_pixel
 				/ 8));
-	*(unsigned int *)dst = color;
+	*(int *)dst = color;
 }

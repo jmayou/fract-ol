@@ -54,8 +54,8 @@ typedef struct s_data
 	int			fix_color;
 	double		zoom;
 	int			set;
-	float			horizontal;
-	float			verticat;
+	float		horizontal;
+	float		verticat;
 	t_complexe	z;
 	t_complexe	c;
 	t_mlx		mlx;
@@ -71,7 +71,7 @@ typedef struct s_atof
 	int			k;
 }				t_atof;
 
-void			ft_complexe(t_complexe *z, t_complexe c,int set);
+void			ft_complexe(t_complexe *z, t_complexe c, int set);
 void			mandelbrot(t_data *data);
 void			julia(t_data *data);
 void			my_tricorn(t_data *data);

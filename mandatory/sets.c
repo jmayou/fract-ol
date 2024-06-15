@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:23:02 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/09 16:08:34 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/15 13:14:48 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	mandelbrot(t_data *data)
 		{
 			data->z.re = 0;
 			data->z.im = 0;
-			data->c.re = (2 * data->i) / data->zoom;
-			data->c.im = (2 * data->j) / data->zoom;
+			data->c.re = (data->i) / data->zoom;
+			data->c.im = (data->j) / data->zoom;
 			data->fin = 0;
 			while ((data->z.re * data->z.re) + (data->z.im * data->z.im) <= 4
 				&& data->fin < MAX_FIN)
@@ -84,7 +84,7 @@ void	ft_set(t_data *data, char *str)
 			&data->image.endian);
 	if (data->set == MANDLEBROT)
 	{
-		data->zoom = 400.0;
+		data->zoom = 200.0;
 		mandelbrot(data);
 	}
 	else if (data->set == JULIA)
