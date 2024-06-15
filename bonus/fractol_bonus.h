@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/26 13:26:01 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/14 16:49:48 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/15 14:48:02 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ typedef struct s_data
 	int			fix_color;
 	double		zoom;
 	int			set;
-	float		horizontal;
-	float		verticat;
+	double		horizontal;
+	double		verticat;
 	t_complexe	z;
 	t_complexe	c;
 	t_mlx		mlx;
