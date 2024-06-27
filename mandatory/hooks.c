@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:37:07 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/15 12:06:20 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/25 17:06:45 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	mouse_hook(int keycode, int x, int y, t_data *data)
 		data->zoom = data->zoom - 10;
 	else if (keycode == 5)
 		data->zoom = data->zoom + 10;
+	mlx_clear_window(data->mlx.ptr, data->mlx.wind);
 	if (data->set == MANDLEBROT)
 		mandelbrot(data);
 	else if (data->set == JULIA)

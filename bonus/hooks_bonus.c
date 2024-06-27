@@ -6,7 +6,7 @@
 /*   By: jmayou <jmayou@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 13:37:07 by jmayou            #+#    #+#             */
-/*   Updated: 2024/06/15 14:46:20 by jmayou           ###   ########.fr       */
+/*   Updated: 2024/06/27 14:00:57 by jmayou           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	mouse_hook(int keycode, int x, int y, t_data *data)
 		data->horizontal += x_zoom * (factor_zoom - 1);
 		data->verticat += y_zoom * (factor_zoom - 1);
 	}
+	mlx_clear_window(data->mlx.ptr, data->mlx.wind);
 	if (data->set == MANDLEBROT)
 		mandelbrot(data);
 	else if (data->set == JULIA)
@@ -57,6 +58,7 @@ int	key_hook(int key, t_data *data)
 		data->verticat -= 0.1;
 	else if (key == 126)
 		data->verticat += 0.1;
+	mlx_clear_window(data->mlx.ptr, data->mlx.wind);
 	if (data->set == MANDLEBROT)
 		mandelbrot(data);
 	else if (data->set == JULIA)
