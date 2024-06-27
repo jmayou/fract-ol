@@ -21,10 +21,10 @@ void	set_color(t_data *data, int color)
 
 void	mandelbrot(t_data *data)
 {
-	data->i = (-WIDTH / 2) ;
+	data->i = (-WIDTH / 2);
 	while (++data->i <= WIDTH / 2)
 	{
-		data->j = (-HEIGHT / 2) ;
+		data->j = (-HEIGHT / 2);
 		while (++data->j <= HEIGHT / 2)
 		{
 			data->z.re = 0;

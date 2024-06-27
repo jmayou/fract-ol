@@ -76,7 +76,7 @@ void	julia(t_data *data)
 
 void	my_tricorn(t_data *data)
 {
-	data->i = (-WIDTH / 2) ;
+	data->i = (-WIDTH / 2);
 	while (++data->i <= WIDTH / 2)
 	{
 		data->j = (-HEIGHT / 2);
